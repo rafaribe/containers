@@ -19,13 +19,15 @@ _An opinionated collection of container images_
 
 </div>
 
-Welcome to my container images, if looking for a container start by [browsing the GitHub Packages page for this repo's packages](https://github.com/onedr0p?tab=packages&repo_name=containers).
+Welcome to my container images, if looking for a container start by [browsing the GitHub Packages page for this repo's packages](https://github.com/rafaribe?tab=packages&repo_name=containers).
 
 ## Mission statement
 
 The goal of this project is to support [semantically versioned](https://semver.org/), [rootless](https://rootlesscontaine.rs/), and [multiple architecture](https://www.docker.com/blog/multi-arch-build-and-images-the-simple-way/) containers for various applications.
 
 It also adheres to a [KISS principle](https://en.wikipedia.org/wiki/KISS_principle), logging to stdout, [one process per container](https://testdriven.io/tips/59de3279-4a2d-4556-9cd0-b444249ed31e/), no [s6-overlay](https://github.com/just-containers/s6-overlay) and all images are built on top of [Alpine](https://hub.docker.com/_/alpine) or [Ubuntu](https://hub.docker.com/_/ubuntu).
+
+This repository is a fork of [onedr0p/containers](https://github.com/onedr0p/containers) with some containers that I use for my own purposes. Please use the original containers from @onedr0p instead.
 
 ## Tag immutability
 
@@ -35,10 +37,10 @@ We do take a similar approach but instead of appending a `-ls69` or `-r420` pref
 
 | Container                                          | Immutable |
 |----------------------------------------------------|-----------|
-| `ghcr.io/onedr0p/sonarr:rolling`                   | ❌         |
-| `ghcr.io/onedr0p/sonarr:3.0.8.1507`                | ❌         |
-| `ghcr.io/onedr0p/sonarr:rolling@sha256:8053...`    | ✅         |
-| `ghcr.io/onedr0p/sonarr:3.0.8.1507@sha256:8053...` | ✅         |
+| `ghcr.io/rafaribe/sonarr:rolling`                   | ❌         |
+| `ghcr.io/rafaribe/sonarr:3.0.8.1507`                | ❌         |
+| `ghcr.io/rafaribe/sonarr:rolling@sha256:8053...`    | ✅         |
+| `ghcr.io/rafaribe/sonarr:3.0.8.1507@sha256:8053...` | ✅         |
 
 _If pinning an image to the sha256 digest, tools like [Renovate](https://github.com/renovatebot/renovate) support updating the container on a digest or application version change._
 
@@ -55,7 +57,7 @@ networks:
     external: true
 services:
   sonarr:
-    image: ghcr.io/onedr0p/sonarr:3.0.8.1507
+    image: ghcr.io/rafaribe/sonarr:3.0.8.1507
     container_name: sonarr
     user: 65534:65534
     # ...
