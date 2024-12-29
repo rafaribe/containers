@@ -14,7 +14,7 @@ RUN \
     catatonit \
     mariadb-client~"${VERSION}"
 
-COPY ./entrypoint.sh /entrypoint.sh
+COPY apps/mysql-init/entrypoint.sh /entrypoint.sh
 
 USER nobody:nogroup
 
