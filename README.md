@@ -107,26 +107,27 @@ Each Image will be built with a `rolling` tag, along with tags specific to it's 
 
 Container | Channel | Image
 --- | --- | ---
-[actions-runner](https://github.com/rafaribe/containers/pkgs/container/actions-runner) | stable | ghcr.io/onedr0p/actions-runner
-[bazarr](https://github.com/rafaribe/containers/pkgs/container/bazarr) | stable | ghcr.io/onedr0p/bazarr
-[home-assistant](https://github.com/rafaribe/containers/pkgs/container/home-assistant) | stable | ghcr.io/onedr0p/home-assistant
-[jbops](https://github.com/rafaribe/containers/pkgs/container/jbops) | stable | ghcr.io/onedr0p/jbops
-[plex](https://github.com/rafaribe/containers/pkgs/container/plex) | stable | ghcr.io/onedr0p/plex
-[plex-beta](https://github.com/rafaribe/containers/pkgs/container/plex-beta) | beta | ghcr.io/onedr0p/plex-beta
-[postgres-init](https://github.com/rafaribe/containers/pkgs/container/postgres-init) | stable | ghcr.io/onedr0p/postgres-init
-[prowlarr](https://github.com/rafaribe/containers/pkgs/container/prowlarr) | master | ghcr.io/onedr0p/prowlarr
-[prowlarr-develop](https://github.com/rafaribe/containers/pkgs/container/prowlarr-develop) | develop | ghcr.io/onedr0p/prowlarr-develop
-[prowlarr-nightly](https://github.com/rafaribe/containers/pkgs/container/prowlarr-nightly) | nightly | ghcr.io/onedr0p/prowlarr-nightly
-[qbittorrent](https://github.com/rafaribe/containers/pkgs/container/qbittorrent) | stable | ghcr.io/onedr0p/qbittorrent
-[qbittorrent-beta](https://github.com/rafaribe/containers/pkgs/container/qbittorrent-beta) | beta | ghcr.io/onedr0p/qbittorrent-beta
-[radarr](https://github.com/rafaribe/containers/pkgs/container/radarr) | master | ghcr.io/onedr0p/radarr
-[radarr-develop](https://github.com/rafaribe/containers/pkgs/container/radarr-develop) | develop | ghcr.io/onedr0p/radarr-develop
-[radarr-nightly](https://github.com/rafaribe/containers/pkgs/container/radarr-nightly) | nightly | ghcr.io/onedr0p/radarr-nightly
-[sabnzbd](https://github.com/rafaribe/containers/pkgs/container/sabnzbd) | stable | ghcr.io/onedr0p/sabnzbd
-[sonarr](https://github.com/rafaribe/containers/pkgs/container/sonarr) | main | ghcr.io/onedr0p/sonarr
-[sonarr-develop](https://github.com/rafaribe/containers/pkgs/container/sonarr-develop) | develop | ghcr.io/onedr0p/sonarr-develop
-[tautulli](https://github.com/rafaribe/containers/pkgs/container/tautulli) | master | ghcr.io/onedr0p/tautulli
-[volsync](https://github.com/rafaribe/containers/pkgs/container/volsync) | stable | ghcr.io/onedr0p/volsync
+[actions-runner](https://github.com/rafaribe/containers/pkgs/container/actions-runner) | stable | ghcr.io/rafaribe/actions-runner
+[bazarr](https://github.com/rafaribe/containers/pkgs/container/bazarr) | stable | ghcr.io/rafaribe/bazarr
+[home-assistant](https://github.com/rafaribe/containers/pkgs/container/home-assistant) | stable | ghcr.io/rafaribe/home-assistant
+[jbops](https://github.com/rafaribe/containers/pkgs/container/jbops) | stable | ghcr.io/rafaribe/jbops
+[mysql-init](https://github.com/rafaribe/containers/pkgs/container/mysql-init) | stable | ghcr.io/rafaribe/mysql-init
+[plex](https://github.com/rafaribe/containers/pkgs/container/plex) | stable | ghcr.io/rafaribe/plex
+[plex-beta](https://github.com/rafaribe/containers/pkgs/container/plex-beta) | beta | ghcr.io/rafaribe/plex-beta
+[postgres-init](https://github.com/rafaribe/containers/pkgs/container/postgres-init) | stable | ghcr.io/rafaribe/postgres-init
+[prowlarr](https://github.com/rafaribe/containers/pkgs/container/prowlarr) | master | ghcr.io/rafaribe/prowlarr
+[prowlarr-develop](https://github.com/rafaribe/containers/pkgs/container/prowlarr-develop) | develop | ghcr.io/rafaribe/prowlarr-develop
+[prowlarr-nightly](https://github.com/rafaribe/containers/pkgs/container/prowlarr-nightly) | nightly | ghcr.io/rafaribe/prowlarr-nightly
+[qbittorrent](https://github.com/rafaribe/containers/pkgs/container/qbittorrent) | stable | ghcr.io/rafaribe/qbittorrent
+[qbittorrent-beta](https://github.com/rafaribe/containers/pkgs/container/qbittorrent-beta) | beta | ghcr.io/rafaribe/qbittorrent-beta
+[radarr](https://github.com/rafaribe/containers/pkgs/container/radarr) | master | ghcr.io/rafaribe/radarr
+[radarr-develop](https://github.com/rafaribe/containers/pkgs/container/radarr-develop) | develop | ghcr.io/rafaribe/radarr-develop
+[radarr-nightly](https://github.com/rafaribe/containers/pkgs/container/radarr-nightly) | nightly | ghcr.io/rafaribe/radarr-nightly
+[sabnzbd](https://github.com/rafaribe/containers/pkgs/container/sabnzbd) | stable | ghcr.io/rafaribe/sabnzbd
+[sonarr](https://github.com/rafaribe/containers/pkgs/container/sonarr) | main | ghcr.io/rafaribe/sonarr
+[sonarr-develop](https://github.com/rafaribe/containers/pkgs/container/sonarr-develop) | develop | ghcr.io/rafaribe/sonarr-develop
+[tautulli](https://github.com/rafaribe/containers/pkgs/container/tautulli) | master | ghcr.io/rafaribe/tautulli
+[volsync](https://github.com/rafaribe/containers/pkgs/container/volsync) | stable | ghcr.io/rafaribe/volsync
 
 
 ## Deprecations
