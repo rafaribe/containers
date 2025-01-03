@@ -58,4 +58,7 @@ ENV DEDUPLICATE_UPLOADS=n
 ENV READ_UPLOAD_DATA=y
 
 COPY apps/akkoma/entrypoint.sh /entrypoint.sh
-ENTRYPOINT /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
+
+LABEL org.opencontainers.image.source="https://akkoma.dev/AkkomaGang/akkoma"
