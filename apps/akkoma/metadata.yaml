@@ -1,5 +1,5 @@
 ---
-app: home-assistant
+app: akkoma
 semver: false
 channels:
   - name: stable
