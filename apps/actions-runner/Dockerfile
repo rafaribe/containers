@@ -1,5 +1,5 @@
 ARG VERSION
-FROM --platform=amd64 ghcr.io/actions/actions-runner:${VERSION}
+FROM ghcr.io/actions/actions-runner:${VERSION}
 
 ENV HOMEBREW_NO_ANALYTICS=1 \
     HOMEBREW_NO_ENV_HINTS=1 \
@@ -14,12 +14,14 @@ RUN \
     apt-get update \
     && \
     apt-get install -y --no-install-recommends --no-install-suggests \
-        ca-certificates \
-        gcc \
-        jo \
-        moreutils \
-        wget \
-        zstd \
+    ca-certificates \
+    gcc \
+    jo \
+    moreutils \
+    wget \
+    zstd \
+    jq \
+    yq \
     && rm -rf /var/lib/apt/lists/*
 
 USER runner
