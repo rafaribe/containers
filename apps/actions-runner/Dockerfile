@@ -20,6 +20,7 @@ RUN \
     moreutils \
     wget \
     zstd \
+    build-essential \
     && rm -rf /var/lib/apt/lists/*
 
 USER runner
