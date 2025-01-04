@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Set environment variables
 export PDS_PORT=3000
