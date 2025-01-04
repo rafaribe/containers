@@ -43,8 +43,9 @@ EXPOSE 3000
 ENV PUID=1000
 ENV PGID=1000
 
-RUN addgroup --gid ${PGID} pds && \
-    adduser --home ${PDS_DATADIR} --uid ${PUID} --ingroup pds --disabled-password pds && \
+RUN addgroup -g ${PGID} pds && \
+    adduser -h ${PDS_DATADIR} -u ${PUID} -G pds -D pds && \
+    mkdir -p ${PDS_DATADIR} && \
     chown -R pds:pds ${PDS_DATADIR}
 
 COPY apps/bluesky-pds/entrypoint.sh /entrypoint.sh
