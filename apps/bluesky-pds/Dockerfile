@@ -43,6 +43,8 @@ EXPOSE 3000
 ENV PUID=1000
 ENV PGID=1000
 
+ENV PDS_DATADIR="/pds"
+
 RUN addgroup -g ${PGID} pds && \
     adduser -h ${PDS_DATADIR} -u ${PUID} -G pds -D pds && \
     mkdir -p ${PDS_DATADIR} && \
