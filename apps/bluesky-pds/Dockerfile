@@ -1,6 +1,6 @@
 FROM docker.io/library/alpine:3.21 AS pds-build
 
-ARG VERSION=v0.4.74
+ARG VERSION=0.4.74
 
 RUN apk add --no-cache \
     bash \
@@ -15,7 +15,7 @@ RUN npm install -g pnpm
 
 # Download and extract the PDS archive
 WORKDIR /app
-RUN curl -fsSL -o pds.zip "https://github.com/bluesky-social/pds/archive/refs/tags/${VERSION}.zip" && \
+RUN curl -fsSL -o pds.zip "https://github.com/bluesky-social/pds/archive/refs/tags/v${VERSION}.zip" && \
     unzip pds.zip && \
     mv pds-${VERSION}/service/** . && \
     mv pds-${VERSION}/pdsadmin.sh . && \
