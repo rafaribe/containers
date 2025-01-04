@@ -47,7 +47,7 @@ RUN addgroup --gid ${PGID} pds && \
     adduser --home ${PDS_DATADIR} --uid ${PUID} --ingroup pds --disabled-password pds && \
     chown -R pds:pds ${PDS_DATADIR}
 
-COPY entrypoint.sh /entrypoint.sh
+COPY apps/bluesky-pds/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/usr/bin/catatonit", "--", "/entrypoint.sh"]
