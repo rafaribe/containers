@@ -28,37 +28,14 @@ COPY --from=otp ${TMPDIR}/release ${AKKOMADIR}
 # dependencies
 RUN apk add postgresql-client
 # optional dependencies
-RUN apk add imagemagick ffmpeg exiftool libsoup libmagic
+RUN apk add imagemagick ffmpeg exiftool libsoup libmagic catatonit
 
 WORKDIR ${AKKOMADIR}
 EXPOSE 4000
 ENV AKKOMADIR=${AKKOMADIR}
-ENV DB_USER=postgres
-ENV DB_HOST=db
-ENV DB_NAME=${DB_USER}
-ENV DB_PASS=postgres
-ENV INSTANCE_DOMAIN=akkoma.example.com
-ENV MEDIA_URL=https://akkoma.example.com/media
-ENV INSTANCE_NAME=Akkoma
-ENV INSTANCE_ADMIN_EMAIL=admin@example.com
-ENV INSTANCE_NOTIFY_EMAIL=info@example.com
-# allow search engines to index site
-# one of [y,n]
-ENV INSTANCE_INDEX=y
-# enables configuration via AdminFE
-# one of [y,n]
-ENV INSTANCE_ADMINFE=y
-# one of [y,n]
-ENV STRIP_UPLOADS=y
-# one of [y,n]
-ENV ANONYMIZE_UPLOADS=n
-# one of [y,n]
-ENV DEDUPLICATE_UPLOADS=n
-# one of [y,n]
-ENV READ_UPLOAD_DATA=y
 
 COPY apps/akkoma/entrypoint.sh /entrypoint.sh
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/usr/bin/catatonit", "--", "/entrypoint.sh"]
 
 LABEL org.opencontainers.image.source="https://akkoma.dev/AkkomaGang/akkoma"
