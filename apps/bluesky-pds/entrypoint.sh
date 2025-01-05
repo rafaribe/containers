@@ -25,13 +25,7 @@ main() {
         echo "PDS_PLC_ROTATION_KEY_K256_PRIVATE_KEY_HEX not specified"
         exit 1
     fi
-
-    # if hostname is not the same as the PDS_HOSTNAME then quit
-    if [[ "${PDS_HOSTNAME}" != "${HOSTNAME}" ]]; then
-        echo "PDS_HOSTNAME does not match the hostname"
-        exit 1
-    fi
-
+    
     # create the config if it does not exist
     if [[ ! -f ${CONFIG_FILE} ]]; then
         echo "PDS_JWT_SECRET=${PDS_JWT_SECRET}" >${CONFIG_FILE}
