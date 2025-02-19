@@ -1,4 +1,4 @@
-FROM docker.io/library/python:3.21-alpine
+FROM docker.io/library/python:alpine3.21
 ARG TARGETPLATFORM
 ARG VERSION
 ARG CHANNEL
