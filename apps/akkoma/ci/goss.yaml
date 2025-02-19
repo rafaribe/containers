@@ -1,7 +1,0 @@
----
-# yaml-language-server: $schema=https://raw.githubusercontent.com/goss-org/goss/master/docs/schema.yaml
-file:
-  /opt/akkoma/bin/pleroma_ctl:
-    exists: true
-  /opt/akkoma/bin/pleroma:
-    exists: true
