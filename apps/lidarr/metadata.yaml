@@ -1,7 +1,6 @@
 ---
 app: lidarr
-base: false
-semantic_versioning: true
+semver: true
 channels:
   - name: master
     platforms: ["linux/amd64", "linux/arm64"]
@@ -16,12 +15,6 @@ channels:
       enabled: true
       type: web
   - name: nightly
-    platforms: ["linux/amd64", "linux/arm64"]
-    stable: false
-    tests:
-      enabled: true
-      type: web
-  - name: plugins
     platforms: ["linux/amd64", "linux/arm64"]
     stable: false
     tests:
