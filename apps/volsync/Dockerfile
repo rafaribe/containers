@@ -11,28 +11,28 @@ ENV CGO_ENABLED=0 \
     GOARM=${TARGETVARIANT}
 RUN go install -a -ldflags "-X=main.volsyncVersion=v${VERSION}" github.com/backube/volsync@v${VERSION}
 
-FROM docker.io/library/alpine:3.21.0
+FROM docker.io/library/alpine:3.21
 ARG TARGETPLATFORM
 ARG VERSION
 ARG CHANNEL
 
 RUN \
     apk add --no-cache \
-        acl \
-        bash \
-        ca-certificates \
-        curl \
-        coreutils \
-        tzdata \
+    acl \
+    bash \
+    ca-certificates \
+    curl \
+    coreutils \
+    tzdata \
     && \
     curl -fsSL "https://github.com/backube/volsync/archive/refs/tags/v${VERSION}.tar.gz" \
-        | tar xzf - -C /tmp --strip-components=1 \
+    | tar xzf - -C /tmp --strip-components=1 \
     && mkdir -p /mover-rclone \
-        && cp /tmp/mover-rclone/active.sh /mover-rclone/ \
-        && chmod a+rx /mover-rclone/*.sh \
+    && cp /tmp/mover-rclone/active.sh /mover-rclone/ \
+    && chmod a+rx /mover-rclone/*.sh \
     && mkdir -p /mover-restic \
-        && cp /tmp/mover-restic/entry.sh /mover-restic/ \
-        && chmod a+rx /mover-restic/*.sh \
+    && cp /tmp/mover-restic/entry.sh /mover-restic/ \
+    && chmod a+rx /mover-restic/*.sh \
     && rm -rf /tmp/*
 
 COPY --from=docker.io/rclone/rclone:1.68.2 /usr/local/bin/rclone /usr/local/bin/rclone

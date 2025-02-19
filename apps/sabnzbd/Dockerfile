@@ -1,5 +1,4 @@
-FROM docker.io/library/python:3.13-alpine
-
+FROM docker.io/library/python:3.21-alpine
 ARG TARGETPLATFORM
 ARG VERSION
 ARG CHANNEL
@@ -24,27 +23,27 @@ WORKDIR /app
 
 RUN \
     apk add --no-cache \
-        bash \
-        ca-certificates \
-        catatonit \
-        coreutils \
-        curl \
-        jo \
-        jq \
-        nano \
-        p7zip \
-        trurl \
-        tzdata \
+    bash \
+    ca-certificates \
+    catatonit \
+    coreutils \
+    curl \
+    jo \
+    jq \
+    nano \
+    p7zip \
+    trurl \
+    tzdata \
     && \
     apk add --no-cache --virtual=.build-deps \
-        build-base \
-        cargo \
-        libffi-dev \
-        musl-dev \
-        openssl-dev \
+    build-base \
+    cargo \
+    libffi-dev \
+    musl-dev \
+    openssl-dev \
     && mkdir -p /app \
     && curl -fsSL "https://github.com/sabnzbd/sabnzbd/releases/download/${VERSION}/SABnzbd-${VERSION}-src.tar.gz" \
-        | tar xzf - -C /app --strip-components=1 \
+    | tar xzf - -C /app --strip-components=1 \
     && pip install uv \
     && uv pip install --system --requirement /app/requirements.txt \
     && chown -R root:root /app && chmod -R 755 /app \

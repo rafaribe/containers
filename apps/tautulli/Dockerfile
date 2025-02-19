@@ -1,4 +1,4 @@
-FROM docker.io/library/python:3.13.1-alpine
+FROM docker.io/library/python:3.21-alpine
 
 ARG TARGETPLATFORM
 ARG VERSION
@@ -25,27 +25,27 @@ WORKDIR /app
 #hadolint ignore=DL3018,DL3013
 RUN \
     apk add --no-cache \
-        bash \
-        ca-certificates \
-        catatonit \
-        curl \
-        jo \
-        jq \
-        nano \
-        tzdata \
+    bash \
+    ca-certificates \
+    catatonit \
+    curl \
+    jo \
+    jq \
+    nano \
+    tzdata \
     && \
     apk add --no-cache --virtual .build-deps \
-        build-base \
-        cargo \
-        libffi-dev \
-        musl-dev \
-        openssl-dev \
+    build-base \
+    cargo \
+    libffi-dev \
+    musl-dev \
+    openssl-dev \
     && pip install uv \
     && uv pip install --system \
-        --requirement "https://raw.githubusercontent.com/Tautulli/tautulli-baseimage/python3/requirements.txt" \
+    --requirement "https://raw.githubusercontent.com/Tautulli/tautulli-baseimage/python3/requirements.txt" \
     && mkdir -p /app \
     && curl -fsSL "https://github.com/Tautulli/Tautulli/archive/v${VERSION}.tar.gz" \
-        | tar xzf - -C /app --strip-components 1 \
+    | tar xzf - -C /app --strip-components 1 \
     && echo "v${VERSION}" > /app/version.txt \
     && echo "${CHANNEL}" > /app/branch.txt \
     && chown -R root:root /app && chmod -R 755 /app \

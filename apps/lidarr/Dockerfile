@@ -55,7 +55,7 @@ RUN \
     && chmod -R 755 /app \
     && rm -rf /tmp/*
 
-USER kah
+USER nobody:nogroup
 
 COPY ./apps/lidarr/config.xml.tmpl /app/config.xml.tmpl
 COPY ./apps/lidarr/entrypoint.sh /entrypoint.sh
