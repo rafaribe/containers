@@ -110,10 +110,12 @@ Each Image will be built with a `rolling` tag, along with tags specific to it's 
 Container | Channel | Image
 --- | --- | ---
 [actions-runner](https://github.com/rafaribe/containers/pkgs/container/actions-runner) | stable | ghcr.io/rafaribe/actions-runner
-[akkoma](https://github.com/rafaribe/containers/pkgs/container/akkoma) | stable | ghcr.io/rafaribe/akkoma
 [bazarr](https://github.com/rafaribe/containers/pkgs/container/bazarr) | stable | ghcr.io/rafaribe/bazarr
 [home-assistant](https://github.com/rafaribe/containers/pkgs/container/home-assistant) | stable | ghcr.io/rafaribe/home-assistant
 [jbops](https://github.com/rafaribe/containers/pkgs/container/jbops) | stable | ghcr.io/rafaribe/jbops
+[lidarr](https://github.com/rafaribe/containers/pkgs/container/lidarr) | master | ghcr.io/rafaribe/lidarr
+[lidarr-develop](https://github.com/rafaribe/containers/pkgs/container/lidarr-develop) | develop | ghcr.io/rafaribe/lidarr-develop
+[lidarr-nightly](https://github.com/rafaribe/containers/pkgs/container/lidarr-nightly) | nightly | ghcr.io/rafaribe/lidarr-nightly
 [mysql-init](https://github.com/rafaribe/containers/pkgs/container/mysql-init) | stable | ghcr.io/rafaribe/mysql-init
 [plex](https://github.com/rafaribe/containers/pkgs/container/plex) | stable | ghcr.io/rafaribe/plex
 [plex-beta](https://github.com/rafaribe/containers/pkgs/container/plex-beta) | beta | ghcr.io/rafaribe/plex-beta
