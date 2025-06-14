@@ -38,15 +38,10 @@ RUN \
 
 USER runner
 
-RUN \
-    case "${TARGETARCH}" in \
-        'amd64') /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" ;; \
-        'arm64') /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" ;; \
-    esac \
-    && \
-    case "${TARGETARCH}" in \
-        'amd64'|'arm64') \
-            echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.bashrc \
-            && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" \
-            ;; \
-    esac
+RUN if [ "${TARGETARCH}" = "amd64" ]; then \
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"; \
+    fi
+
+RUN if [ "${TARGETARCH}" = "arm64" ]; then \
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; \
+    fi
