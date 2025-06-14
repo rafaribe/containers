@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-ARG VERSION=latest
+ARG VERSION
 FROM ghcr.io/actions/actions-runner:${VERSION}
 ARG TARGETARCH
 
@@ -15,10 +15,15 @@ RUN \
     && \
     apt-get -qq install -y --no-install-recommends --no-install-suggests \
         ca-certificates \
+        curl \
         git \
         jo \
+        jq \
         moreutils \
+        unrar \
+        unzip \
         wget \
+        zip \
         zstd \
     && \
     case "${TARGETARCH}" in \
@@ -37,30 +42,13 @@ RUN \
         && apt install gh -y \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-USER root
-
-# Create homebrew directory and set permissions
-RUN mkdir -p /home/linuxbrew/.linuxbrew && \
-    chown -R runner:runner /home/linuxbrew/.linuxbrew
+COPY --from=ghcr.io/fluxcd/flux-cli:v2.6.1 /usr/local/bin/flux /usr/local/bin/flux
+COPY --from=registry.k8s.io/kubectl:v1.33.1 /bin/kubectl /usr/local/bin/kubectl
+COPY --from=docker.io/mikefarah/yq:4.45.4 /usr/bin/yq /usr/local/bin/yq
 
 USER runner
 
-# Install Homebrew with architecture-specific approach
-RUN case "${TARGETARCH}" in \
-        "amd64") \
-            NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" && \
-            echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/runner/.bashrc \
-            ;; \
-        "arm64") \
-            git clone https://github.com/Homebrew/brew /home/linuxbrew/.linuxbrew/Homebrew && \
-            mkdir -p /home/linuxbrew/.linuxbrew/bin && \
-            ln -s /home/linuxbrew/.linuxbrew/Homebrew/bin/brew /home/linuxbrew/.linuxbrew/bin/brew && \
-            echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/runner/.bashrc && \
-            eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && \
-            /home/linuxbrew/.linuxbrew/bin/brew --version \
-            ;; \
-        *) \
-            echo "Unsupported architecture: ${TARGETARCH}" && exit 1 \
-            ;; \
+RUN \
+    case "${TARGETARCH}" in \
+        'amd64') /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" ;; \
     esac
-
