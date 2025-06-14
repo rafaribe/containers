@@ -43,7 +43,7 @@ USER root
 RUN mkdir -p /home/linuxbrew/.linuxbrew && \
     chown -R runner:runner /home/linuxbrew/.linuxbrew
 
-
+USER runner
 
 # Install Homebrew with architecture-specific approach
 RUN case "${TARGETARCH}" in \
@@ -63,4 +63,4 @@ RUN case "${TARGETARCH}" in \
             echo "Unsupported architecture: ${TARGETARCH}" && exit 1 \
             ;; \
     esac
-    USER runner
+
