@@ -19,14 +19,9 @@ RUN \
         moreutils \
         wget \
         zstd \
-        build-essential \
-        procps \
-        file \
-        git \
     && \
     case "${TARGETARCH}" in \
         'amd64') apt-get -qq install -y --no-install-recommends --no-install-suggests gcc ;; \
-        'arm64') apt-get -qq install -y --no-install-recommends --no-install-suggests gcc ;; \
     esac \
     && \
     curl -fsSL "https://github.com/mikefarah/yq/releases/latest/download/yq_linux_${TARGETARCH}" -o /usr/local/bin/yq \
