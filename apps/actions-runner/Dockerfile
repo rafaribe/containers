@@ -15,6 +15,7 @@ RUN \
     && \
     apt-get -qq install -y --no-install-recommends --no-install-suggests \
         ca-certificates \
+        git \
         jo \
         moreutils \
         wget \
@@ -36,13 +37,30 @@ RUN \
         && apt install gh -y \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-USER runner
+USER root
 
-# Install Homebrew for both architectures with proper branch selection
-RUN if [ "${TARGETARCH}" = "amd64" ]; then \
-        NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" && \
-        echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/runner/.bashrc; \
-    elif [ "${TARGETARCH}" = "arm64" ]; then \
-        NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && \
-        echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/runner/.bashrc; \
-    fi
+# Create homebrew directory and set permissions
+RUN mkdir -p /home/linuxbrew/.linuxbrew && \
+    chown -R runner:runner /home/linuxbrew/.linuxbrew
+
+
+
+# Install Homebrew with architecture-specific approach
+RUN case "${TARGETARCH}" in \
+        "amd64") \
+            NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" && \
+            echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/runner/.bashrc \
+            ;; \
+        "arm64") \
+            git clone https://github.com/Homebrew/brew /home/linuxbrew/.linuxbrew/Homebrew && \
+            mkdir -p /home/linuxbrew/.linuxbrew/bin && \
+            ln -s /home/linuxbrew/.linuxbrew/Homebrew/bin/brew /home/linuxbrew/.linuxbrew/bin/brew && \
+            echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/runner/.bashrc && \
+            eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && \
+            /home/linuxbrew/.linuxbrew/bin/brew --version \
+            ;; \
+        *) \
+            echo "Unsupported architecture: ${TARGETARCH}" && exit 1 \
+            ;; \
+    esac
+    USER runner
