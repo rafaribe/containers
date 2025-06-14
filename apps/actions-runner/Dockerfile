@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-ARG VERSION
+ARG VERSION=latest
 FROM ghcr.io/actions/actions-runner:${VERSION}
 ARG TARGETARCH
 
@@ -38,10 +38,11 @@ RUN \
 
 USER runner
 
+# Install Homebrew for both architectures with proper branch selection
 RUN if [ "${TARGETARCH}" = "amd64" ]; then \
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"; \
-    fi
-
-RUN if [ "${TARGETARCH}" = "arm64" ]; then \
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; \
+        NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" && \
+        echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/runner/.bashrc; \
+    elif [ "${TARGETARCH}" = "arm64" ]; then \
+        NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && \
+        echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/runner/.bashrc; \
     fi
