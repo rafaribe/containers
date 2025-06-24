@@ -1,0 +1,7 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/goss-org/goss/master/docs/schema.yaml
+file:
+  /entrypoint.sh:
+    exists: true
+  /app/pdsadmin.sh:
+    exists: true
