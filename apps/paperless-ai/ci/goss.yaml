@@ -1,0 +1,42 @@
+---
+file:
+  /app/package.json:
+    exists: true
+  /app/requirements.txt:
+    exists: true
+  /app/start-services.sh:
+    exists: true
+    mode: "0755"
+  /app/venv/bin/python:
+    exists: true
+
+command:
+  node-version:
+    exec: "node --version"
+    exit-status: 0
+    stdout:
+      - "v22"
+
+  python-version:
+    exec: "/app/venv/bin/python --version"
+    exit-status: 0
+    stdout:
+      - "Python 3"
+
+  npm-packages:
+    exec: "npm list --depth=0"
+    exit-status: 0
+
+  python-packages:
+    exec: "/app/venv/bin/pip list"
+    exit-status: 0
+    stdout:
+      - "fastapi"
+      - "uvicorn"
+
+port:
+  tcp:3000:
+    listening: false
+    
+  tcp:8000:
+    listening: false
