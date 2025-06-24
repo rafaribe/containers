@@ -117,6 +117,7 @@ Container | Channel | Image
 [lidarr-develop](https://github.com/rafaribe/containers/pkgs/container/lidarr-develop) | develop | ghcr.io/rafaribe/lidarr-develop
 [lidarr-nightly](https://github.com/rafaribe/containers/pkgs/container/lidarr-nightly) | nightly | ghcr.io/rafaribe/lidarr-nightly
 [mysql-init](https://github.com/rafaribe/containers/pkgs/container/mysql-init) | stable | ghcr.io/rafaribe/mysql-init
+[paperless-ai](https://github.com/rafaribe/containers/pkgs/container/paperless-ai) | stable | ghcr.io/rafaribe/paperless-ai
 [plex](https://github.com/rafaribe/containers/pkgs/container/plex) | stable | ghcr.io/rafaribe/plex
 [plex-beta](https://github.com/rafaribe/containers/pkgs/container/plex-beta) | beta | ghcr.io/rafaribe/plex-beta
 [postgres-init](https://github.com/rafaribe/containers/pkgs/container/postgres-init) | stable | ghcr.io/rafaribe/postgres-init
