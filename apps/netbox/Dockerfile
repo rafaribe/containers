@@ -1,6 +1,7 @@
 ARG VERSION
 FROM ghcr.io/netbox-community/netbox:${VERSION}
 
+USER root
 # Create nonroot user with UID 1000 and set ownership
 RUN adduser --disabled-password --uid 1000 --gecos "" nonroot \
     && chown -R 1000 /opt/netbox/ \
