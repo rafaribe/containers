@@ -3,5 +3,4 @@ version=$(curl -sL "https://api.github.com/repos/netbox-community/netbox/release
     jq -r '.[] | select(.prerelease == false) | .tag_name' | \
     grep '^v4\.' | \
     head -1)
-version="${version#*v}"
 printf "%s" "${version}"
