@@ -8,3 +8,5 @@ RUN adduser -D -u 1000 nonroot \
 
 # Switch to non-root user
 USER nonroot
+
+LABEL org.opencontainers.image.source="https://github.com/netbox-community/netbox"
