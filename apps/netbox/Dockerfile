@@ -1,5 +1,5 @@
 ARG VERSION
-FROM  ghcr.io/netboxcommunity/netbox:${VERSION}
+FROM ghcr.io/netbox-community/netbox:${VERSION}
 
 # Create nonroot user with UID 1000 and set ownership
 RUN adduser -D -u 1000 nonroot \
