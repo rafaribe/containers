@@ -1,10 +1,10 @@
 ---
-app: bazarr
+app: netbox
 semver: true
 channels:
   - name: stable
-    platforms: ["linux/amd64", "linux/arm64"]
+    platforms: ["linux/amd64", linux/arm64"]
     stable: true
     tests:
       enabled: true
-      type: web
+      type: cli
