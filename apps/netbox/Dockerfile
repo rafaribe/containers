@@ -1,13 +1,11 @@
 ARG VERSION
 FROM ghcr.io/netbox-community/netbox:${VERSION}
 
-USER root
-# Create nonroot user with UID 1000 and set ownership
-RUN adduser --disabled-password --uid 1000 --gecos "" nonroot \
-    && chown -R 1000 /opt/netbox/ \
-    && chown -R 1000 /etc/netbox/
+# Change ownership of netbox directories to ubuntu user (UID 1000)
+RUN chown -R 1000:1000 /opt/netbox/ \
+    && chown -R 1000:1000 /etc/netbox/
 
 # Switch to non-root user
-USER nonroot
+USER 1000
 
 LABEL org.opencontainers.image.source="https://github.com/netbox-community/netbox"
