@@ -1,5 +1,5 @@
 ARG VERSION
-FROM netboxcommunity/netbox:${VERSION}
+FROM netboxcommunity/netbox:v${VERSION}
 
 # Create nonroot user with UID 1000 and set ownership
 RUN adduser -D -u 1000 nonroot \
