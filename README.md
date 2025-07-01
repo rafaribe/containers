@@ -110,6 +110,7 @@ Each Image will be built with a `rolling` tag, along with tags specific to it's 
 Container | Channel | Image
 --- | --- | ---
 [actions-runner](https://github.com/rafaribe/containers/pkgs/container/actions-runner) | stable | ghcr.io/rafaribe/actions-runner
+[amazon-q](https://github.com/rafaribe/containers/pkgs/container/amazon-q) | stable | ghcr.io/rafaribe/amazon-q
 [home-assistant](https://github.com/rafaribe/containers/pkgs/container/home-assistant) | stable | ghcr.io/rafaribe/home-assistant
 [jbops](https://github.com/rafaribe/containers/pkgs/container/jbops) | stable | ghcr.io/rafaribe/jbops
 [lidarr](https://github.com/rafaribe/containers/pkgs/container/lidarr) | master | ghcr.io/rafaribe/lidarr
