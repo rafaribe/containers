@@ -1,0 +1,20 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/goss-org/goss/master/docs/schema.yaml
+command:
+  q --version:
+    exit-status: 0
+    timeout: 10000
+  aws --version:
+    exit-status: 0
+    timeout: 5000
+file:
+  /usr/local/bin/q:
+    exists: true
+    mode: "0755"
+  /usr/local/bin/aws:
+    exists: true
+    mode: "0755"
+  /home/dev/.local/share/amazon-q/data.sqlite3:
+    exists: true
+    owner: dev
+    group: dev
