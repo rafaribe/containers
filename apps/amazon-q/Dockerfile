@@ -63,9 +63,15 @@ RUN \
 # Install mise for managing multiple language runtimes
 RUN \
     curl https://mise.run | sh \
-    && echo 'eval "$(~/.local/bin/mise activate --shims bash)"' >> ~/.bashrc \
-    && eval "$(~/.local/bin/mise activate --shims bash)" \
-    && ~/.local/bin/mise use -g python@latest uv@latest node@lts java@latest go@latest
+    && echo 'eval "$(~/.local/bin/mise activate --shims bash)"' >> ~/.bashrc
+
+# Install core language runtimes (skip uv to avoid GitHub rate limits)
+RUN \
+    eval "$(~/.local/bin/mise activate --shims bash)" \
+    && ~/.local/bin/mise use -g python@latest \
+    && ~/.local/bin/mise use -g node@lts \
+    && ~/.local/bin/mise use -g java@latest \
+    && ~/.local/bin/mise use -g go@latest
 
 VOLUME ["/home/dev/src", "/home/dev/.aws", "/home/dev/.local/share/amazon-q", "/home/dev/.cache/amazon-q"]
 
