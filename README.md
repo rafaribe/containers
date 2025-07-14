@@ -122,6 +122,7 @@ Container | Channel | Image
 [plex](https://github.com/rafaribe/containers/pkgs/container/plex) | stable | ghcr.io/rafaribe/plex
 [plex-beta](https://github.com/rafaribe/containers/pkgs/container/plex-beta) | beta | ghcr.io/rafaribe/plex-beta
 [postgres-init](https://github.com/rafaribe/containers/pkgs/container/postgres-init) | stable | ghcr.io/rafaribe/postgres-init
+[postgres17](https://github.com/rafaribe/containers/pkgs/container/postgres17) | stable | ghcr.io/rafaribe/postgres17
 [prowlarr](https://github.com/rafaribe/containers/pkgs/container/prowlarr) | master | ghcr.io/rafaribe/prowlarr
 [prowlarr-develop](https://github.com/rafaribe/containers/pkgs/container/prowlarr-develop) | develop | ghcr.io/rafaribe/prowlarr-develop
 [prowlarr-nightly](https://github.com/rafaribe/containers/pkgs/container/prowlarr-nightly) | nightly | ghcr.io/rafaribe/prowlarr-nightly
