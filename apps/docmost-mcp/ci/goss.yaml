@@ -1,0 +1,13 @@
+---
+file:
+  /app/package.json:
+    exists: true
+  /app/build/index.js:
+    exists: true
+
+command:
+  node-version:
+    exec: "node --version"
+    exit-status: 0
+    stdout:
+      - "v22"
