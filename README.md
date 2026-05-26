@@ -4,6 +4,8 @@ to edit this file, instead edit its template at: ./scripts/templates/README.md.j
 -->
 <div align="center">
 
+<img src="https://raw.githubusercontent.com/rafaribe/home-ops/main/docs/assets/logo.png" width="144px" height="144px"/>
+
 ## containers
 
 _A focused collection of container images for my home-ops stack_ 🏠
@@ -51,6 +53,8 @@ Tags here are **not** immutable by themselves. Pin to the sha256 digest for a tr
 | [docmost-mcp](https://github.com/rafaribe/containers/pkgs/container/docmost-mcp) | `stable` | `ghcr.io/rafaribe/docmost-mcp` |
 | [paperless-ai](https://github.com/rafaribe/containers/pkgs/container/paperless-ai) | `stable` | `ghcr.io/rafaribe/paperless-ai` |
 | [qbittorrent](https://github.com/rafaribe/containers/pkgs/container/qbittorrent) | `stable` | `ghcr.io/rafaribe/qbittorrent` |
+| [qbittorrent-beta](https://github.com/rafaribe/containers/pkgs/container/qbittorrent-beta) | `beta` | `ghcr.io/rafaribe/qbittorrent-beta` |
+
 
 ## Usage
 
