@@ -1,4 +1,4 @@
-# docmost-mcp
+# docmost-mcp-server
 
 Containerized [docmost-mcp](https://github.com/MrMartiniMo/docmost-mcp) — an MCP server for [Docmost](https://docmost.com) that lets AI agents manage documentation spaces and pages.
 
@@ -13,7 +13,7 @@ Containerized [docmost-mcp](https://github.com/MrMartiniMo/docmost-mcp) — an M
         "-e", "DOCMOST_API_URL",
         "-e", "DOCMOST_EMAIL",
         "-e", "DOCMOST_PASSWORD",
-        "ghcr.io/rafaribe/docmost-mcp:latest"
+        "ghcr.io/rafaribe/docmost-mcp-server:latest"
       ],
       "env": {
         "DOCMOST_API_URL": "https://docs.example.com/api",

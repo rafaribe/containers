@@ -1,5 +1,5 @@
 ---
-app: docmost-mcp
+app: docmost-mcp-server
 semver: true
 channels:
   - name: stable
