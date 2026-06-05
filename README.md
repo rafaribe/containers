@@ -50,7 +50,8 @@ Tags here are **not** immutable by themselves. Pin to the sha256 digest for a tr
 
 | Container | Channel | Image |
 |---|---|---|
-| [docmost-mcp](https://github.com/rafaribe/containers/pkgs/container/docmost-mcp) | `stable` | `ghcr.io/rafaribe/docmost-mcp` |
+| [docmost-mcp-server](https://github.com/rafaribe/containers/pkgs/container/docmost-mcp-server) | `stable` | `ghcr.io/rafaribe/docmost-mcp-server` |
+| [musicgrabber](https://github.com/rafaribe/containers/pkgs/container/musicgrabber) | `stable` | `ghcr.io/rafaribe/musicgrabber` |
 | [paperless-ai](https://github.com/rafaribe/containers/pkgs/container/paperless-ai) | `stable` | `ghcr.io/rafaribe/paperless-ai` |
 | [qbittorrent](https://github.com/rafaribe/containers/pkgs/container/qbittorrent) | `stable` | `ghcr.io/rafaribe/qbittorrent` |
 | [qbittorrent-beta](https://github.com/rafaribe/containers/pkgs/container/qbittorrent-beta) | `beta` | `ghcr.io/rafaribe/qbittorrent-beta` |
