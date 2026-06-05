@@ -1,0 +1,12 @@
+---
+process:
+  uvicorn:
+    running: true
+
+user:
+  "1000":
+    exists: true
+
+port:
+  tcp:8080:
+    listening: true
