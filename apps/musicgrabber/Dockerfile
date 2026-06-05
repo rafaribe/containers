@@ -18,6 +18,7 @@ WORKDIR /app
 
 EXPOSE 8080
 
-ENTRYPOINT ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8080"]
+ENTRYPOINT []
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8080"]
 
 LABEL org.opencontainers.image.source="https://github.com/g33kphr33k/musicgrabber"
