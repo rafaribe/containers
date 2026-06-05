@@ -1,12 +1,9 @@
 ---
-process:
-  uvicorn:
-    running: true
-
-user:
-  "1000":
+file:
+  /app/app.py:
     exists: true
 
-port:
-  tcp:8080:
-    listening: true
+command:
+  uvicorn-available:
+    exec: "which uvicorn"
+    exit-status: 0
