@@ -6,15 +6,9 @@ command:
     stdout:
       - "Python 3.12"
 
-  fastmcp-installed:
-    exec: "fastmcp version"
+  uv-installed:
+    exec: "uv --version"
     exit-status: 0
-
-user:
-  mcp:
-    exists: true
-    uid: 1000
-    gid: 1000
 
 file:
   /app/src/server.py:
