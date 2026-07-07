@@ -1,0 +1,12 @@
+command:
+  python-version:
+    exec: "python --version"
+    exit-status: 0
+    stdout:
+      - "Python 3.12"
+
+  grid-installed:
+    exec: "grid --version"
+    exit-status: 0
+    stdout:
+      - "grid"
