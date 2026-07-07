@@ -1,0 +1,22 @@
+---
+command:
+  python-version:
+    exec: "python --version"
+    exit-status: 0
+    stdout:
+      - "Python 3.12"
+
+  fastmcp-installed:
+    exec: "fastmcp version"
+    exit-status: 0
+
+user:
+  mcp:
+    exists: true
+    uid: 1000
+    gid: 1000
+
+file:
+  /app/src/server.py:
+    exists: true
+    owner: mcp
