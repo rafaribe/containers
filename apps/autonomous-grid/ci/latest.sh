@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-version="$(curl -sL -o /dev/null -w '%{url_effective}' "https://github.com/autonomous-ai/autonomous-grid/releases/latest" | grep -oP 'v\K[^/]+')"
+version="$(curl -sX GET "https://api.github.com/repos/autonomous-ai/autonomous-grid/releases/latest" | jq --raw-output '.tag_name' 2>/dev/null)"
+version="${version#*v}"
 printf "%s" "${version}"

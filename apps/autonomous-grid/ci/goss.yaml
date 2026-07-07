@@ -1,12 +1,9 @@
-command:
-  python-version:
-    exec: "python --version"
-    exit-status: 0
-    stdout:
-      - "Python 3.12"
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/goss-org/goss/master/docs/schema.yaml
+port:
+  tcp:8090:
+    listening: true
 
-  grid-installed:
-    exec: "grid --version"
-    exit-status: 0
-    stdout:
-      - "grid"
+http:
+  http://localhost:8090/v1/models:
+    status: 200
