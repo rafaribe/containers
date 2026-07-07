@@ -22,7 +22,8 @@ RUN apt-get update && \
 RUN pip install --no-cache-dir \
     "https://github.com/autonomous-ai/autonomous-grid/releases/download/v${VERSION}/grid-${VERSION}-py3-none-any.whl"
 
-COPY entrypoint.sh /app/entrypoint.sh
+COPY apps/autonomous-grid/entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
 
 # Create non-root user
 RUN groupadd -g 1000 grid && \
