@@ -23,7 +23,7 @@ RUN git clone --branch update-api-implementation --single-branch https://github.
     uv add fastmcp httpx && \
     chown -R 1000:1000 /app
 
-COPY server.py /app/src/server.py
+COPY apps/mealie-mcp-server/server.py /app/src/server.py
 
 RUN chown 1000:1000 /app/src/server.py
 
