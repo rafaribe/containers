@@ -37,7 +37,7 @@ RUN case "$(uname -m)" in \
     && chmod -R u=rwX,go=rX /app \
     && rm -rf /tmp/*
 
-COPY ./apps/lidarr-plugins/entrypoint.sh /entrypoint.sh
+COPY ./apps/lidarr-develop/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh && mkdir -p /config && chown 1000:1000 /config
 
 USER 1000:1000
