@@ -13,8 +13,7 @@ USER root
 WORKDIR /app
 
 #hadolint ignore=DL3018
-RUN \
-    apk add --no-cache \
+RUN apk add --no-cache \
         bash \
         ca-certificates \
         catatonit \
@@ -24,26 +23,20 @@ RUN \
         icu-libs \
         jq \
         sqlite-libs \
-        tzdata \
-    && \
-    case "${TARGETPLATFORM}" in \
-        'linux/amd64') export ARCH="x64" ;; \
-        'linux/arm64') export ARCH="arm64" ;; \
+        tzdata
+
+RUN case "${TARGETPLATFORM}" in \
+        'linux/amd64') ARCH="x64" ;; \
+        'linux/arm64') ARCH="arm64" ;; \
     esac \
-    && \
-    mkdir -p /app/bin \
-    && \
-    curl -fsSL \
+    && mkdir -p /app/bin \
+    && curl -fsSL \
         "https://lidarr.servarr.com/v1/update/lidarr-plugins/updatefile?version=${VERSION}&os=linuxmusl&runtime=netcore&arch=${ARCH}" \
         | tar xzf - -C /app/bin --strip-components=1 \
-    && \
-    rm -rf /app/bin/Lidarr.Update \
-    && \
-    printf "PackageVersion=%s\nPackageAuthor=[rafaribe](https://github.com/rafaribe)\nUpdateMethod=Docker\nBranch=lidarr-plugins\n" "${VERSION}" > /app/package_info \
-    && \
-    chmod -R u=rwX,go=rX /app \
-    && \
-    rm -rf /tmp/*
+    && rm -rf /app/bin/Lidarr.Update \
+    && printf "PackageVersion=%s\nPackageAuthor=[rafaribe](https://github.com/rafaribe)\nUpdateMethod=Docker\nBranch=lidarr-plugins\n" "${VERSION}" > /app/package_info \
+    && chmod -R u=rwX,go=rX /app \
+    && rm -rf /tmp/*
 
 COPY ./apps/lidarr-plugins/entrypoint.sh /entrypoint.sh
 
