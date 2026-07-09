@@ -34,12 +34,12 @@ RUN \
     mkdir -p /app/bin \
     && \
     curl -fsSL \
-        "https://lidarr.servarr.com/v1/update/plugins/updatefile?version=${VERSION}&os=linuxmusl&runtime=netcore&arch=${ARCH}" \
+        "https://lidarr.servarr.com/v1/update/lidarr-plugins/updatefile?version=${VERSION}&os=linuxmusl&runtime=netcore&arch=${ARCH}" \
         | tar xzf - -C /app/bin --strip-components=1 \
     && \
     rm -rf /app/bin/Lidarr.Update \
     && \
-    printf "PackageVersion=%s\nPackageAuthor=[rafaribe](https://github.com/rafaribe)\nUpdateMethod=Docker\nBranch=plugins\n" "${VERSION}" > /app/package_info \
+    printf "PackageVersion=%s\nPackageAuthor=[rafaribe](https://github.com/rafaribe)\nUpdateMethod=Docker\nBranch=lidarr-plugins\n" "${VERSION}" > /app/package_info \
     && \
     chmod -R u=rwX,go=rX /app \
     && \
