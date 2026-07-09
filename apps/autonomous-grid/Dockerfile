@@ -1,5 +1,5 @@
 ARG VERSION
-FROM python:3.12-slim
+FROM python:3.14-slim
 
 ARG TARGETPLATFORM
 ARG VERSION
