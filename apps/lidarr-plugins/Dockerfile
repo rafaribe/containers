@@ -1,6 +1,5 @@
 FROM docker.io/library/alpine:3.22
 
-ARG TARGETPLATFORM
 ARG VERSION
 ARG CHANNEL
 
@@ -25,13 +24,13 @@ RUN apk add --no-cache \
         sqlite-libs \
         tzdata
 
-RUN case "${TARGETPLATFORM}" in \
-        'linux/amd64') ARCH="x64" ;; \
-        'linux/arm64') ARCH="arm64" ;; \
+RUN case "$(uname -m)" in \
+        'x86_64') ARCH="x64" ;; \
+        'aarch64') ARCH="arm64" ;; \
     esac \
     && mkdir -p /app/bin \
     && curl -fsSL \
-        "https://lidarr.servarr.com/v1/update/lidarr-plugins/updatefile?version=${VERSION}&os=linuxmusl&runtime=netcore&arch=${ARCH}" \
+        "https://lidarr.servarr.com/v1/update/develop/updatefile?version=${VERSION}&os=linuxmusl&runtime=netcore&arch=${ARCH}" \
         | tar xzf - -C /app/bin --strip-components=1 \
     && rm -rf /app/bin/Lidarr.Update \
     && printf "PackageVersion=%s\nPackageAuthor=[rafaribe](https://github.com/rafaribe)\nUpdateMethod=Docker\nBranch=lidarr-plugins\n" "${VERSION}" > /app/package_info \
@@ -39,6 +38,7 @@ RUN case "${TARGETPLATFORM}" in \
     && rm -rf /tmp/*
 
 COPY ./apps/lidarr-plugins/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh && mkdir -p /config && chown 1000:1000 /config
 
 USER 1000:1000
 WORKDIR /config
