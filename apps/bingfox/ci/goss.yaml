@@ -1,0 +1,29 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/goss-org/goss/master/docs/schema.yaml
+file:
+  /app/server.js:
+    exists: true
+  /app/data:
+    exists: true
+    filetype: directory
+  /app/data.db:
+    exists: true
+    filetype: symlink
+
+command:
+  node-version:
+    exec: "node --version"
+    exit-status: 0
+    stdout:
+      - "v20"
+
+  npm-packages:
+    exec: "npm list --depth=0"
+    exit-status: 0
+    stdout:
+      - "express"
+      - "better-sqlite3"
+
+port:
+  tcp:3001:
+    listening: false
