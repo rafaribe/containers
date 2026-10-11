@@ -38,3 +38,4 @@ LABEL org.opencontainers.image.source="https://github.com/rafaribe/containers"
 LABEL org.opencontainers.image.upstream="https://github.com/Radiotechniman/Bingfox"
 
 CMD ["node", "server.js"]
+
