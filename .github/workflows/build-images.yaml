@@ -166,7 +166,10 @@ jobs:
         if: ${{ matrix.image.tests_enabled }}
         uses: e1himself/goss-installation-action@v1
         with:
-          version: latest
+          # v0.4.x switched to tarball naming (goss_0.4.x_linux_x86_64.tar.gz);
+          # the action still downloads the legacy bare-binary format (goss-linux-amd64)
+          # so pin to the last release that ships that format.
+          version: v0.3.20
 
       - name: Prepare Build Outputs
         id: prepare-build-outputs
