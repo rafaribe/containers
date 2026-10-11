@@ -51,6 +51,7 @@ Tags here are **not** immutable by themselves. Pin to the sha256 digest for a tr
 | Container | Channel | Image |
 |---|---|---|
 | [autonomous-grid](https://github.com/rafaribe/containers/pkgs/container/autonomous-grid) | `stable` | `ghcr.io/rafaribe/autonomous-grid` |
+| [bingfox](https://github.com/rafaribe/containers/pkgs/container/bingfox) | `stable` | `ghcr.io/rafaribe/bingfox` |
 | [docmost-mcp-server](https://github.com/rafaribe/containers/pkgs/container/docmost-mcp-server) | `stable` | `ghcr.io/rafaribe/docmost-mcp-server` |
 | [lidarr-develop](https://github.com/rafaribe/containers/pkgs/container/lidarr-develop) | `stable` | `ghcr.io/rafaribe/lidarr-develop` |
 | [mealie-mcp-server](https://github.com/rafaribe/containers/pkgs/container/mealie-mcp-server) | `stable` | `ghcr.io/rafaribe/mealie-mcp-server` |
