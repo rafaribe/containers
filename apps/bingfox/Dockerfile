@@ -1,5 +1,5 @@
 ARG VERSION
-FROM node:20-alpine
+FROM node:26-alpine
 
 ARG TARGETPLATFORM
 ARG VERSION
